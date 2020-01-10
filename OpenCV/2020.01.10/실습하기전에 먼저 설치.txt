@@ -1,0 +1,3 @@
+아나콘다 프롬프트에서 
+
+pip install pytesseract  먼저 꼭 설치하기
