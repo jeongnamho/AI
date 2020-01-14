@@ -1,0 +1,12 @@
+pip install qrcode
+
+pip install bokeh
+
+
+https://www.microsoft.com/ko-KR/download/details.aspx?id=40784 에서 설치 후
+pip install pyzbar 설치
+
+
+
+https://visualstudio.microsoft.com/ko/downloads/에서
+community 버전으로 다운할 것
