@@ -1,0 +1,6 @@
+postman 검색 후 설치 ㄱㄱ
+
+pip install Flask 설치 후
+
+
+visual code (MS) 가서 설치 ㄱㄱ
