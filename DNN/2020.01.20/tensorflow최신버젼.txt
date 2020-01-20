@@ -1,0 +1,5 @@
+- tensorflow 최선 버전 설치
+pip install --upgrade tensorflow
+
+-keras 설치
+pip install keras
