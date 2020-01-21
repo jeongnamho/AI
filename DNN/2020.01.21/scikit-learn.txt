@@ -1,0 +1,3 @@
+Did you use the module "from keras.wrappers.scikit_learn import KerasClassifier"?
+
+Then your problem will solve if you install the scikit-learn=0.21.3 .
