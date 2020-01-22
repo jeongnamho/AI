@@ -1,0 +1,15 @@
+
+DNN/2020.01.21/datasets/cifar-10-batches-py.tar.gz
+DNN/2020.01.21/datasets/cifar-10-batches-py/batches.meta
+DNN/2020.01.21/datasets/cifar-10-batches-py/data_batch_1
+DNN/2020.01.21/datasets/cifar-10-batches-py/data_batch_2
+DNN/2020.01.21/datasets/cifar-10-batches-py/data_batch_3
+DNN/2020.01.21/datasets/cifar-10-batches-py/data_batch_4
+DNN/2020.01.21/datasets/cifar-10-batches-py/data_batch_5
+DNN/2020.01.21/datasets/cifar-10-batches-py/readme.html
+DNN/2020.01.21/datasets/cifar-10-batches-py/test_batch
+DNN/2020.01.21/datasets/fashion-mnist/t10k-images-idx3-ubyte.gz
+DNN/2020.01.21/datasets/fashion-mnist/t10k-labels-idx1-ubyte.gz
+DNN/2020.01.21/datasets/fashion-mnist/train-images-idx3-ubyte.gz
+DNN/2020.01.21/datasets/fashion-mnist/train-labels-idx1-ubyte.gz
+DNN/2020.01.21/datasets/mnist.npz
