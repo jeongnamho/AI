@@ -1,0 +1,11 @@
+C:\AI\Detection\2020.01.30\snowman\imgs\tree1.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree2.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree3.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree4.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree5.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree6.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree7.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree8.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree9.jpg
+C:\AI\Detection\2020.01.30\snowman\imgs\tree10.jpg
+

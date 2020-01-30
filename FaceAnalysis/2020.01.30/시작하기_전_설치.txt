@@ -1,0 +1,25 @@
+conda create -n py36 python=3.5 ananconda ㄱㄱ
+conda activate py36
+pip install opencv-python
+pip install imutils
+pip install dlib
+
+https://pypi.org/simple/dlib/ 에 가서
+- dlib-19.8.1-cp36-cp36m-win_amd64.whl
+- dlib-19.19.0.tar.gz
+두 개 다운로드
+이후 설치 경로로 가서 pip install dlib-19.8.1-cp36-cp36m-win_amd64.whl ㄱㄱ
+
+pip install --no-dependencies face_recognition  ㄱㄱ
+
+이후에 face file에서 모듈 run이 안되면 프롬프트 환경에서 아래의 문구 입력
+pip install git+https://github.com/ageitgey/face_recognnition_
+
+
+
+
+-- 새로 설치해야 할 목록
+imutils
+dlib ---> python 3.7 X (Linux)     3.6 OK
+face_recognition
+
