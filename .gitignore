@@ -4369,3 +4369,15 @@ Detection/2020.01.30/snowman/darknet53.conv.74
 FaceAnalysis/2020.01.30/shape_predictor_68_face_landmarks.dat
 DNN/2020.01.21/.ipynb_checkpoints/2020.01.21 - 1. 최적화-checkpoint.ipynb
 DNN/2020.01.21/.ipynb_checkpoints/2020.01.21 - 2. CNN-checkpoint.ipynb
+FaceAnalysis/2020.01.31/.ipynb_checkpoints/age-checkpoint.ipynb
+FaceAnalysis/2020.01.31/.ipynb_checkpoints/2020.01.31 - 4. faceall-checkpoint.ipynb
+FaceAnalysis/2020.01.31/.ipynb_checkpoints/2020.01.31 - 3. emotion-checkpoint.ipynb
+FaceAnalysis/2020.01.31/.ipynb_checkpoints/2020.01.31 - 2. agegender-checkpoint.ipynb
+FaceAnalysis/2020.01.31/.ipynb_checkpoints/2020.01.31 - 1. Face analysis-checkpoint.ipynb
+FaceAnalysis/2020.01.31/age_deploy.prototxt
+FaceAnalysis/2020.01.31/age_net.caffemodel
+FaceAnalysis/2020.01.31/gender_net.caffemodel
+FaceAnalysis/2020.01.31/gender_deploy.prototxt
+FaceAnalysis/2020.01.31/opencv_face_detector_uint8.pb
+FaceAnalysis/2020.01.31/opencv_face_detector.pbtxt
+FaceAnalysis/2020.01.31/fer2013.csv
