@@ -7,5 +7,6 @@ pip install konlpy --user    # konlpy : 한국어 형태소 분석해주는 라�
 
 conda install -c conda-forge jpype1
 
+pip install nltk
 
 혹시 그 외에 더 필요한 모듈이나 패키지가 있다면 인터넷 보고 알아서 설치
