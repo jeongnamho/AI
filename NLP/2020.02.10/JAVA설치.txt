@@ -1,0 +1,32 @@
+
+1. 
+내 PC 우클릭-> 속성 --> 왼쪽에 고급 시스템 설정 --> 환경 변수 클릭
+--> 시스템 변수에서 JAVA.HOME 있나 확인 (없으면 자바 다운로드)
+
+2. 
+-JAVA download
+구글에서 openjdk를 검색해서 (혹은 https://eteris.tistory.com/1836로 바로가기)
+그대로 따라서 java-1.8.0-openjdk-1.8.0.242-1.b08.ojdkbuild.windows.x86_64.msi 다운로드하기
+
+3. 
+그대로 설치하면 아마 
+C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
+이 경로에 JAVA가 설치되었음을 알 수 있을 것임
+
+4. 
+그럼 다시 1.에서 했던 것처럼 시스템 변수에 가서 (새로만들기)를 누르고 다음과 같이 설치한다.
+변수 이름 : JAVA_HOME
+변수 값 : C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
+
+이후 확인 ㄱㄱ
+
+5. Anaconda prompt에서 java -version를 실행했을 때 아래와 같이 나오면 설치가 된 것이다.
+"""
+openjdk version "1.8.0_242"
+OpenJDK Runtime Environment (build 1.8.0_242-b08)
+OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
+"""
+
+
+
+

@@ -1,0 +1,6 @@
+1. OpenCV
+2. DNN
+3. Detection
+4. FaceAnalysis
+5. Chatbot
+6. NLP

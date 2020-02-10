@@ -1,0 +1,15 @@
+형태소 분석 다운로드
+
+1. https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype 페이지에서 
+JPype에서 자신의 python 버전에 맞는 걸로 다운받기
+
+
+2. 보통 다운로드 폴더에 받아지기 때문에
+Anaconda prompt에서
+cd C:\Users\student\Downloads로 디렉토리를 바꾼 후에
+
+conda install JPype1-0.7.1-cp37-cp37m-win_amd64 (1에서 다운받은 파일 이름) 실행
+
+정상적으로 패키지가 설치된다.
+
+
