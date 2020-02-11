@@ -4,3 +4,4 @@
 4. FaceAnalysis
 5. Chatbot
 6. NLP
+7. Web
