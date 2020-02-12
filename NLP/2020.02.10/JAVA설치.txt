@@ -16,7 +16,7 @@ C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
 4. 
 그럼 다시 1.에서 했던 것처럼 시스템 변수에 가서 (새로만들기)를 누르고 다음과 같이 설치한다.
 변수 이름 : JAVA_HOME
-변수 값 : C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
+변수 값 : C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1\bin
 
 이후 확인 ㄱㄱ
 

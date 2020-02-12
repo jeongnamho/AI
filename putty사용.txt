@@ -1,0 +1,9 @@
+putty 사용
+
+15.164.114.228
+
+1) login
+2) mkdir web
+3) cd web
+4) conda activate
+5) jupyter notebook --ip 0.0.0.0 --port 88
