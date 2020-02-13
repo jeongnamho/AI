@@ -16,11 +16,19 @@ C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
 4. 
 그럼 다시 1.에서 했던 것처럼 시스템 변수에 가서 (새로만들기)를 누르고 다음과 같이 설치한다.
 변수 이름 : JAVA_HOME
-변수 값 : C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1\bin
+변수 값 : C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.242-1
 
-이후 확인 ㄱㄱ
+이후 확인ㄱㄱ
 
-5. Anaconda prompt에서 java -version를 실행했을 때 아래와 같이 나오면 설치가 된 것이다.
+5. 
+1.에서의 환경변수에서 ~~에 대한 사용자 변수에서
+Path를 선택하고 <편집>을 클릭한 후
+4.에서 설정한 변수 값에 해당하는 디렉토리가 없다면(혹은 java가 들어간 것이 없다면)
+<새로 만들기>를 클릭 후 %JAVA_HOME%\bin를 입력하고 확인을 누르고
+환경 변수와 시스템 속성에서 차례로 확인을 누른다.
+
+
+6. Anaconda prompt에서 java -version를 실행했을 때 아래와 같이 나오면 설치가 된 것이다.
 """
 openjdk version "1.8.0_242"
 OpenJDK Runtime Environment (build 1.8.0_242-b08)
