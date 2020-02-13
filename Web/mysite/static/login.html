@@ -1,0 +1,16 @@
+<form action=/login method=get> <!--login앞에 /가 있으면 절대경로, /가 없으면 상대경로 -->
+
+    id = <input type=text name=id> <br>
+    pwd = <input type=text name=pwd> <br>
+    <input type=submit value='login'>
+</form>
+
+
+<!--<form action = "http://127.0.0.1:80/uploadimage" method = "POST"-->
+<form action = "/uploadimage" method = "POST"
+enctype = "multipart/form-data">
+    <input type = "file" name = "file1" /> <br>
+    <input type = "submit" value="verification" />
+</form>
+
+
