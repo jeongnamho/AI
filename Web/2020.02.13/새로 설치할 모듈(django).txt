@@ -1,0 +1,25 @@
+1. 
+가상환경에 pip install django
+
+2.
+설치 후 django-admin 이라고 치면 available subcommands 리스트가 나옴(확인차원)
+
+3.
+C:\AI\Web 으로 디렉토리를 옮기고,
+다시 django-admin startproject mysite 를 입력하고 실행ㄱㄱ
+mysite라는 만들어졌음(C:\AI\Web에서)
+
+4. (직접 하는 것 X)
+mysite->mysite에서 setting.py가 있는데 여기선 Templates에서 Dir가 설정이 안되어 있는데
+이건 나중에 우리가 알아서 정하는 것
+
+5. (직접 하는 것 X) 
+urls.py에서는 url을 나중에 설정해야 함
+
+
+6. mysite에 있는 manage.py는 직접 나중에 실행 할 것임(이전 수업의 web.py역할)
+
+
+
+
+
