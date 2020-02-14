@@ -1,0 +1,23 @@
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<input type=text name=id id="id">  <br>
+<input type=password name=pwd id="pwd"> <br>
+<button id="btnCalc">로그인</button>
+
+
+<script>
+     $("#btnCalc").click( function() {
+        var param = {id:$("#id").val(), pwd:$("#pwd").val()};
+        $.get("/ajax/login", param, function(data) {       // 여긴 그냥 http의 get방식으로 가져온다는 소리
+         console.log(JSON.stringify(data));
+         if ( data.error == 0) location.href = "/ajax"
+         else {
+            $("#id").focus();
+            $("#id").val("");  // id를 리셋함
+            $("#pwd").val("");   // pwd를 리셋함
+            alert(data.message);
+            }
+        });
+      });
+</script>

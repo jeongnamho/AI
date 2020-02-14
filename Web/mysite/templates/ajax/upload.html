@@ -1,0 +1,64 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+  .progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+  .bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+  .percent { position:absolute; display:inline-block; top:3px; left:48%; }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+
+
+<form action="upload" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+      <input name="title" value="테스트1"/>
+      <input name="contents" value="테스트 자료입니다."/>
+      <input type="file" name="file1"/>
+      <input type="submit" value="upload">
+</form>
+
+
+
+
+<div class="progress">  <!--progress라는 class는 논리적으로 bar라는 class와 percent라는 class를 묶어주기 위해서 있다고 생각-->
+    <div class="bar"></div>
+    <div class="percent">0%</div>
+</div>
+<div id="status"></div>
+
+
+<script>
+$(function() {
+    var bar = $('.bar');  //$는 jquery라는 함수로서 .을 이용해 'bar'라는 class를 찾는 것!
+    var percent = $('.percent');  // 'percent'라는 class를 찾음
+    var status = $('#status');
+    $('form').ajaxForm({
+        beforeSend: function() {      // 보내기 전. beforeSend라는 함수 실행
+            status.empty();
+            var percentVal = '0%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+        uploadProgress: function(event, position, total, percentComplete) {     //보내는 중. uploadProgress라는 함수를 실행
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+        complete: function(xhr) {       // 업로드 끝났을 때. complete라는 함수 실행
+           status.html("성공")
+           //status.html(xhr.responseText)
+        },
+       error:function(e){          // 업로드 실패했을 때. error라는 함수 실행
+          status.html("실패")
+       }
+
+    });
+});
+
+ </script>
