@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 import face
+from myapp.models import User
 
 def index(request):
     return HttpResponse("Hello DJango!!!")
@@ -60,6 +61,30 @@ def uploadimage(request):
 
 
 
+def listUser(request) :
+
+    if request.method == "GET" :
+        userid = request.GET.get("userid","")
+        if userid != "":  # userid가 아무것도 없는 것을 삭제할 수 없으니까
+            User.objects.all().get(userid=userid).delete()
+            return redirect("/listuser")
+
+        q = request.GET.get("q", "")
+        data = User.objects.all()
+        if q != "":
+            data = data.filter(name__contains=q)
+        return render(request, 'template2.html', {"data": data})
+    else :
+        userid = request.POST["userid"] #request.POST.get("userid")를 써도 됌!
+        name = request.POST["name"]
+        age = request.POST['age']
+        hobby = request.POST["hobby"]
+
+
+        # u = User(userid=userid, name=name, age=age, hobby=hobby).save()
+        User.objects.create(userid=userid, name=name, age=age, hobby=hobby)  #이렇게 하면 굳이 윗 줄처럼 수정이 필요없다. 저절로 save가 되니까!
+
+        return redirect("/listuser")
 
 
 
