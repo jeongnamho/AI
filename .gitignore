@@ -4465,3 +4465,12 @@ Web/mysite/myapp/__pycache__/admin.cpython-36.pyc
 Web/mysite/myapp/__pycache__/models.cpython-36.pyc
 Web/mysite/myapp/migrations/__pycache__/0001_initial.cpython-36.pyc
 Web/mysite/myapp/migrations/__pycache__/__init__.cpython-36.pyc
+Web/2020.02.18/.ipynb_checkpoints/2020.02.18 - 1. Blog-checkpoint.ipynb
+Web/mysite/.ipynb_checkpoints/blog-checkpoint.ipynb
+Web/mysite/blog/__pycache__/__init__.cpython-36.pyc
+Web/mysite/blog/__pycache__/admin.cpython-36.pyc
+Web/mysite/blog/__pycache__/models.cpython-36.pyc
+Web/mysite/blog/__pycache__/urls.cpython-36.pyc
+Web/mysite/blog/__pycache__/views.cpython-36.pyc
+Web/mysite/blog/migrations/__pycache__/__init__.cpython-36.pyc
+Web/mysite/blog/migrations/__pycache__/0001_initial.cpython-36.pyc
