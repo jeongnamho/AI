@@ -1,13 +1,15 @@
 {% extends 'blog/base.html' %}   <!-- 파이썬에서 import 하는 개념이라고 생각하면 됌-->
 
 {% block content %}
-
+<a href = "{% url 'edit' 0 'add'%}">Add</a> <br>
 {% for d in data %}
+<a href="{% url 'edit' d.pk 'detail' %}"> {{d.title}} </a> <br>
+
 <!--<a href="{{d.pk}}/detail">{{d.title}} </a><br>      이 방법보다는 밑 줄의 코드가 더 일반적인 방법-->
-<a href="{% url 'detail' d.pk %}"> {{d.title}} </a> <br>  <!-- 상대 경로-->
-<a href="/blog/{{d.pk}}/detail"> {{d.title}} </a> <br>   <!-- 절대경로 --->
-<a href="/blog/detail?id={{d.pk}}"> {{d.title}} </a> <br>  <!-- 그냥 정적인 경로 -->
-<a href="detail?id={{d.pk}}"> {{d.title}} </a> <br>
+<!--<a href="{% url 'detail' d.pk %}"> {{d.title}} </a> <br>  &lt;!&ndash; 상대 경로&ndash;&gt;-->
+<!--<a href="/blog/{{d.pk}}/detail"> {{d.title}} </a> <br>   &lt;!&ndash; 절대경로 -&ndash;&gt;-->
+<!--<a href="/blog/detail?id={{d.pk}}"> {{d.title}} </a> <br>  &lt;!&ndash; 그냥 정적인 경로 &ndash;&gt;-->
+<!--<a href="detail?id={{d.pk}}"> {{d.title}} </a> <br>-->
 {% endfor%}
 
 

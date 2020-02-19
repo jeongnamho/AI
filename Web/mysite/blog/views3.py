@@ -1,65 +1,45 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
+from blog.models import Post
 from django.views.generic import View
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.forms import Form
 from django.forms import CharField, Textarea, ValidationError
 from django import forms
-#from blog.forms import PostForm
-from . import forms #( from blog import forms라고 해도 됌. 같은 폴더에 있어서)
-from . import models
 
-"""
+
 def list(request) :
     username = request.session["username"]
     user = User.objects.get(username=username)
-    data = models.Post.objects.all().filter(author=user)
+    data = Post.objects.all().filter(author=user)
     context = {"data":data, "username":username}
     return render(request, "blog/list.html", context)
 
 def detail(request, pk) :
-    p = get_object_or_404(models.Post, pk=pk)
+    p = get_object_or_404(Post, pk=pk)
     return render(request, "blog/detail.html", {"d":p})
-"""
 
 
 class PostEditView(View) :
-    def get(self, request, pk, mode):
-        # get 요청
-        # 0/list -> 리스트 출력
-        # 5/detail -> 5번 post를 보여줘
-        # 0/add -> 신규 데이터 작성 -> post 발생
-        # 5/edit -> 5번 post 수정
-        if mode == "add" :
-            form = forms.PostForm()
-        elif mode == "list" :
-            username = request.session["username"]
-            user = User.objects.get(username=username)
-            data = models.Post.objects.all().filter(author=user)
-            context = {"data": data, "username": username}
-            return render(request, "blog/list.html", context)
-        elif mode == "detail" :
-            p = get_object_or_404(models.Post, pk=pk)
-            return render(request, "blog/detail.html", {"d": p})
-        elif mode == "edit" :
-            post = get_object_or_404(models.Post, pk=pk)
-            form = forms.PostForm(instance = post)
+    def get(self, request, pk):
+        if pk == 0 :
+            form = PostForm()
         else :
-            return HttpResponse("error page")
-
+            post = get_object_or_404(Post, pk=pk)
+            form = PostForm(instance=post)
         return render(request, "blog/edit.html", {"form":form})
 
-
     def post(self, request, pk):
+
         username = request.session["username"]
         user = User.objects.get(username=username)
 
         if pk == 0:
-            form = forms.PostForm(request.POST)
+            form = PostForm(request.POST)
         else:
-            post = get_object_or_404(models.Post, pk=pk)
-            form = forms.PostForm(request.POST, instance=post)
+            post = get_object_or_404(Post, pk=pk)
+            form = PostForm(request.POST, instance=post)
 
         if form.is_valid():
             post = form.save(commit=False)
@@ -68,9 +48,21 @@ class PostEditView(View) :
                 post.save()
             else :
                 post.publish()
-            return redirect("edit", 0, 'list')
+            return redirect("list")
         return render(request, "blog/edit.html", {"form": form})
 
+def validator(value) :
+    if len(value) < 5 : raise  ValidationError("길이가 너무 짧아요");
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'text']
+
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['title'].validators = [validator]
 
 class LoginView(View) :
     def get(self, request):

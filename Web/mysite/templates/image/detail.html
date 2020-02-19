@@ -1,0 +1,15 @@
+{% extends 'myboard/base.html' %}
+
+게시물 보기 <br>
+
+{% block content %}
+
+
+   <font color="red">Title :</font> {{d.title}}  <br> <br>
+    <font color="Darkgreen">내용 :</font>{{d.text|linebreaks}}    <!--'|linebreaks' : enter를 인식 못해서 이걸 자동적으로 <br>로 바꿔줌-->
+    <font  size="10em" color="Cyan">카테고리 : </font>{{d.category}} <br><br>
+    <a href="{% url 'myboard' d.pk 'edit' %}">수정</a>
+
+{% endblock %}
+
+

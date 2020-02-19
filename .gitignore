@@ -4474,3 +4474,13 @@ Web/mysite/blog/__pycache__/urls.cpython-36.pyc
 Web/mysite/blog/__pycache__/views.cpython-36.pyc
 Web/mysite/blog/migrations/__pycache__/__init__.cpython-36.pyc
 Web/mysite/blog/migrations/__pycache__/0001_initial.cpython-36.pyc
+Web/mysite/blog/__pycache__/forms.cpython-36.pyc
+Web/2020.02.19/.ipynb_checkpoints/2020.02.19 - 1. Making n-boards-checkpoint.ipynb
+Web/mysite/myboard/__pycache__/views.cpython-36.pyc
+Web/mysite/myboard/__pycache__/urls.cpython-36.pyc
+Web/mysite/myboard/__pycache__/models.cpython-36.pyc
+Web/mysite/myboard/__pycache__/forms.cpython-36.pyc
+Web/mysite/myboard/__pycache__/admin.cpython-36.pyc
+Web/mysite/myboard/__pycache__/__init__.cpython-36.pyc
+Web/mysite/myboard/migrations/__pycache__/__init__.cpython-36.pyc
+Web/mysite/myboard/migrations/__pycache__/0001_initial.cpython-36.pyc

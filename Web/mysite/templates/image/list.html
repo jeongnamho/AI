@@ -1,0 +1,11 @@
+{% extends 'myboard/base.html' %}   <!-- 파이썬에서 import 하는 개념이라고 생각하면 됌-->
+
+{% block content %}
+<a href = "{% url 'myboard' 0 'add'%}">Add</a> <br>
+{% for d in data %}
+<a href="{% url 'myboard' d.pk 'detail' %}"> {{d.title}} </a> <br>
+
+{% endfor%}
+
+{% endblock %}
+

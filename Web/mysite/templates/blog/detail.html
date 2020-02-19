@@ -2,6 +2,7 @@
 {% block content %}
 
 
+    {{d.title}}  <br>
     {{d.text|linebreaks}}    <!--'|linebreaks' : enter를 인식 못해서 이걸 자동적으로 <br>로 바꿔줌-->
 
     <a href="{% url 'edit' d.pk %}">수정</a>
