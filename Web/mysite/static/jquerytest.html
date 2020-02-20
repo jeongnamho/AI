@@ -1,0 +1,233 @@
+<head>
+  <meta charset="UTF-8">
+</head>
+
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+ <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<button id = 'btnAdd'>Add</button>
+
+
+ <!-- data를 동적으로 만들기 -->
+<div id = "view">
+    <div id = 'item'>
+        <a href="list?id = 4"> <span id = 'title'>제목</span></a>
+         조회수 <span id = 'cnt'> 5 </span>
+        <a id='del' href=javascript:deleteBoard()>지우기</a>
+        <br>
+    </div>
+</div>
+
+
+<script>
+
+    
+    // 방법 1
+    // $('#view').append('<a href = skdjfksjdkf> 데이터2 </a><br>')
+    
+
+    //방법2
+    // $('#btnADD').click(function(){
+    //    $('#view').append("<a href = skdjfksjdkf> 데이터2 </a><br>");
+    //       });
+
+
+    // 방법3: 노드를 북사
+     
+    // item = $('#item').colne() 
+    // $('#title').html('제목1')  
+    // $('#cnt').text('10')
+    // $('#View').append(item)
+
+    // $('#btnADD').click(function(){
+    // $('#view').append(item);
+    //     });
+    
+
+
+    //방법 4: 노드의 값을 변경하기
+//    var index= 0;
+
+//     $('#btnAdd').click(function(){
+//         item = $('#item').colne();
+//         $('#title', item).html('제목' + index)  ;
+//         $('#cnt', item).text('index');
+//         $('#View').append(item);
+//         index ++;
+
+//     });
+
+
+    //방법 5:  첫번째 샘플hide
+//     $('#item').hide();
+
+//     var index= 0;
+
+//     $('#btnAdd').click(function() {
+//         item = $('#item').clone();
+//         item.show();
+//         $('#title', item).html('제목' + index)  ;
+//         $('#cnt', item).text('index');
+//         $('#view').append(item);
+//         index++;
+
+// });
+
+//  // 방법 6: 실제 데이터에서 받기
+//  $('#item').hide();
+
+//     var index= 0;
+    
+//     $('#btnAdd').click(function() {
+//         json = {"datas": [{"pk": 2, "title": "\u3134\uc54c\ub0ad\ub780\uc5b4", "cnt": 2}, 
+//                     {"pk": 3, "title": "kjkjkjjjkkkkk", "cnt": 2},
+//                     {"pk": 4, "title": "\ucd08\ucf5c\ub9bf", "cnt": 0}]}
+        
+//         // 디버깅
+//         console.log(json.datas[0].title)
+//         console.log(json.datas[1].title)
+
+
+//         item = $('#item').clone();
+//         item.show();
+//         $('#title', item).html('제목' + index)  ;
+//         $('#cnt', item).text('index');
+//         $('#view').append(item);
+//         index++;
+
+// });
+
+// 방법 7. for문 사용하기
+// $('#item').hide();
+
+//     var index= 0;
+    
+//     $('#btnAdd').click(function() {
+//         json = {"datas": [{"pk": 2, "title": "\u3134\uc54c\ub0ad\ub780\uc5b4", "cnt": 2}, 
+//                     {"pk": 3, "title": "kjkjkjjjkkkkk", "cnt": 2},
+//                     {"pk": 4, "title": "\ucd08\ucf5c\ub9bf", "cnt": 0}]}
+        
+//         for (i = 0; i < json.datas.length; i++) {
+//             console.log(json.datas[i].title);
+//             item = $('#item').clone();
+//             item.show();
+//             $('#title', item).html(json.datas[i].title)  ;
+//             $('#cnt', item).text(json.datas[i].cnt);
+//             $('#view').append(item);
+//         }
+//     });
+
+
+
+// 방법7: 함수로 만들기
+// $('#item').hide();
+// function getPage(page){
+//     json = {"datas": [{"pk": 2, "title": "\u3134\uc54c\ub0ad\ub780\uc5b4", "cnt": 2}, 
+//                     {"pk": 3, "title": "kjkjkjjjkkkkk", "cnt": 2},
+//                     {"pk": 4, "title": "\ucd08\ucf5c\ub9bf", "cnt": 0}]}
+        
+//         for (i = 0; i < json.datas.length; i++) {
+//             item = $('#item').clone();
+//             item.show();
+//             $('#title', item).html(json.datas[i].title)  ;
+//             $('#cnt', item).text(json.datas[i].cnt);
+//             $('#view').append(item);
+//         }
+//     }
+
+// $('#btnAdd').click(function() {
+//     getPage(2);
+// });
+    
+
+
+// 방법8: 함수로 만들기2 -> page 하나씩 늘리면서 append
+/*
+$('#item').hide();
+var page=1;
+
+function getPage(page){
+    json = {"datas": [{"pk": 2, "title": "\u3134\uc54c\ub0ad\ub780\uc5b4", "cnt": 2}, 
+                    {"pk": 3, "title": "kjkjkjjjkkkkk", "cnt": 2},
+                    {"pk": 4, "title": "\ucd08\ucf5c\ub9bf", "cnt": 0}]}
+        
+        for (i = 0; i < json.datas.length; i++) {
+            item = $('#item').clone();
+            item.show();
+            $('#title', item).html(json.datas[i].title)  ;
+            $('#cnt', item).text(json.datas[i].cnt);
+            $('#view').append(item);
+        }
+    }
+
+$('#btnAdd').click(function() {
+    page++;
+    getPage(page);
+});
+getPage(page);
+
+$.get("/myboard/ajaxget", {page:3}, function(json) {
+    console.log(JSON.stringify(json));  // 그냥 json만 하면 object타입이므로 string으로 바꿔준 후 dictionary형태로 바꾸기 위해서?
+}
+*/
+
+
+//방법9 : 비동기식 방식
+//$('#item').hide();
+$("#del").attr("href", "javascript:deleteBoard(6)");
+
+var page = 1; 
+
+function deleteBoard(pk) {
+    alert(pk);
+    $.get("/myboard/ajaxdel", {pk:pk}, function(json) {
+        //alert(json.error);
+        $("#item_" + pk).remove();
+    });
+}
+
+function getPage(page){
+    /*
+    json = {"datas": [{"pk": 2, "title": "\u3134\uc54c\ub0ad\ub780\uc5b4", "cnt": 2}, 
+                    {"pk": 3, "title": "kjkjkjjjkkkkk", "cnt": 2},
+                    {"pk": 4, "title": "\ucd08\ucf5c\ub9bf", "cnt": 0}]}
+                    */
+    
+    $.get("/myboard/ajaxget", {page:page}, function(json) {
+        console.log(JSON.stringify(json));  // 그냥 json만 하면 object타입이므로 string으로 바꿔준 후 dictionary형태로 바꾸기 위해서?
+        
+        if ( json.datas.length == 0) alert("마지막페이지 입니다.");
+        for (i = 0; i < json.datas.length; i++) {
+            item = $('#item').clone();
+            item.attr("id", "item_" + json.datas[i].pk)
+            item.show();
+            $('#title', item).html(json.datas[i].title)  ;
+            $('#cnt', item).text(json.datas[i].cnt);
+            $("#del", item).attr("href", "javascript:deleteBoard(" + json.datas[i].pk + ")");
+            $('#view').append(item);
+        }
+    });
+}
+
+$('#btnAdd').click(function() {
+        page++;
+        getPage(page);
+});
+
+getPage(page);
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<!-- .value: text만 들어갈수있음.
+.html: html tag 사용 가능 -->
