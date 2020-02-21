@@ -10,6 +10,10 @@ from . import models
 from . import forms
 from . import apps
 from django.core.paginator import Paginator
+from django.db import connection
+from django.test import RequestFactory
+from django.conf import settings
+
 
 # url: bolg -> index함수 실행
 def index(request):
@@ -58,6 +62,87 @@ def ajaxget(request) :
 
     # p = Paginator(datas, 3)
     # subs = p.page(page)
+
+def dictfetchall(cursor):
+    desc = cursor.description
+    return[
+        dict(zip([col[0] for col in desc], row )) 
+        for row in cursor.fetchall()
+    ]
+
+
+def listsql(request, category, page) :
+    page = request.GET.get('page', 1)
+    category = request.GET.get('category', 'common')
+    username = request.session.get('username', 'home')
+    user = User.objects.all().get(username=username)
+    sql = """
+    SELECT b.id, title, cnt, username
+    from myboard_board b, auth_user u
+    where b.author_id = u.id
+    """
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    dict = dictfetchall(cursor)
+    
+    page = int(page)
+    data = dict[(page-1)*3: (page*3)]
+
+
+    context = {"data":data}
+    return render(request, 'myboard/list.html', context)
+
+
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+
+def upload(request) :
+
+    file = request.FILES['filename']
+    filename = file._name
+    username = request.session.get('username', 'home')
+    fp = open(settings.BASE_DIR + "/static/faces/" + username + '/' + filename, "wb")
+    for chunk in file.chunks() :
+        fp.write(chunk)
+    fp.close()
+
+    username = "home"
+    sql = f"SELECT id from auth_user where username='{username}'"
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    author_id = cursor.fetchone()[0]
+    sql = f"""
+    INSERT INTO myboard_image
+    (author_id, filename)
+    VALUES ({author_id}, '{filename}');
+    """
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    data = dictfetchall(cursor)
+    context = {"data":data, "username":"home"}
+
+    return redirect("photolist")
+
+
+def photolist(request):
+
+    
+    #request.POST["username"]
+    username = request.session.get('username', 'home')#request.POST.get("username", "home")
+    print(username)
+    sql = f"""
+    select filename
+    from myboard_image
+    where author_id = (select id from auth_user where username='{username}')
+    """
+    print(sql)
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    data = dictfetchall(cursor)
+    context = {"data":data, "username":"home"}
+
+
+    return render(request, "myboard/photolist.html", context)
 
 
 
