@@ -21,16 +21,17 @@ def start(sample_size=25) :
     print("Return true if training is successful :", knn.train(train_data, cv2.ml.ROW_SAMPLE, labels))
     return power, nomal, short
 
-def run(new_data, power, nomal, short):
+def run(new_data, power, nomal, short): # 3,5 7,8,9
     a = np.array([new_data])
     b = a.astype(np.float32)
-    #plot_data(power, nomal, short)    
+    plot_data(power, nomal, short)    
     ret, results, neighbor, dist = knn.findNearest(b, 5) # Second parameter means 'k'
-    #print("Neighbor's label : ", neighbor)
+    print("Neighbor's label : ", neighbor)
     print("predicted label : ", results)
-    #print("distance to neighbor : ", dist)
-    #print("what is this : ", ret)
-    #plt.plot(b[0,0], b[0,1], 'm*', markersize=14);
+    print("distance to neighbor : ", dist)
+    print("what is this : ", ret)
+    print("new_data is ", b)
+    plt.plot(b[0,0], b[0,1], 'm*', markersize=14);
     return int(results[0][0])
     
 #'num_samples' is number of data points to create
@@ -64,8 +65,10 @@ def plot_data(po, no, sh) :
     plt.scatter(po[:,0], po[:,1], c = 'r', marker = 's', s = 50)
     plt.scatter(no[:,0], no[:,1], c = 'g', marker = '^', s = 50)
     plt.scatter(sh[:,0], sh[:,1], c = 'b', marker = 'o', s = 50)
-    plt.xlabel('x is second for alarm term')
-    plt.ylabel('y is 10s for time to close eyes')
+#     plt.xlabel('x is second for alarm term')
+#     plt.ylabel('y is 10s for time to close eyes')
+    plt.xlabel('눈을 뜨고 있던 시간(s)')
+    plt.ylabel('눈을 감고 있던 시간(s)')
 
 #We don't use below two functions. 
 def accuracy_score(acc_score, test_score) :
