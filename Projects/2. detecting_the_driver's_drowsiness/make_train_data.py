@@ -24,13 +24,13 @@ def start(sample_size=25) :
 def run(new_data, power, nomal, short): # 3,5 7,8,9
     a = np.array([new_data])
     b = a.astype(np.float32)
-    plot_data(power, nomal, short)    
+#     plot_data(power, nomal, short)    
     ret, results, neighbor, dist = knn.findNearest(b, 5) # Second parameter means 'k'
-    print("Neighbor's label : ", neighbor)
+#     print("Neighbor's label : ", neighbor)
     print("predicted label : ", results)
-    print("distance to neighbor : ", dist)
-    print("what is this : ", ret)
-    print("new_data is ", b)
+#     print("distance to neighbor : ", dist)
+#     print("what is this : ", ret)
+#     print("new_data is ", b)
     plt.plot(b[0,0], b[0,1], 'm*', markersize=14);
     return int(results[0][0])
     
