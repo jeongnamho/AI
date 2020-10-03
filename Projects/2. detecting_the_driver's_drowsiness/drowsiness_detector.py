@@ -32,7 +32,7 @@ def init_open_ear() :
     time.sleep(5)
     print("open init time sleep")
     ear_list = []
-    th_message1 = Thread(target = init_message)
+    th_message1 = Thread(target = init_message1)
     th_message1.deamon = True
     th_message1.start()
     for i in range(7) :
@@ -48,7 +48,7 @@ def init_close_ear() :
     time.sleep(5)
     print("close init time sleep")
     ear_list = []
-    th_message2 = Thread(target = init_message)
+    th_message2 = Thread(target = init_message2)
     th_message2.deamon = True
     th_message2.start()
     time.sleep(1)
@@ -56,14 +56,21 @@ def init_close_ear() :
         ear_list.append(both_ear)
         time.sleep(1)
     CLOSE_EAR = sum(ear_list) / len(ear_list)
+    alarm.sound_alarm("Open.mp3")
+    time.sleep(2)
+
     global EAR_THRESH
     EAR_THRESH = (((OPEN_EAR - CLOSE_EAR) / 2) + CLOSE_EAR) #EAR_THRESH means 50% of the being opened eyes state
     print("close list =", ear_list, "\nCLOSE_EAR =", CLOSE_EAR, "\n")
     print("The last EAR_THRESH's value :",EAR_THRESH, "\n")
 
-def init_message() :
+def init_message1():
     print("init_message")
-    alarm.sound_alarm("init_sound.mp3")
+    alarm.sound_alarm("Open.mp3")
+
+def init_message2():
+    print("init_message")
+    alarm.sound_alarm("Close.mp3")
 
 #####################################################################################################################
 #1. Variables for checking EAR.

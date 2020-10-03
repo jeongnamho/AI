@@ -8,9 +8,9 @@ import pygame
 
 def select_alarm(result) :
     if result == 0:
-        sound_alarm("power_alarm.wav")
+        sound_alarm("power_alarm.mp3")
     elif result == 1 :
-        sound_alarm("nomal_alarm.wav")
+        sound_alarm("nomal_alarm.mp3")
     else :
         sound_alarm("short_alarm.mp3")
 
